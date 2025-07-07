@@ -1,0 +1,1473 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/23/2025 4:29:39 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ASUSCREATOR"
+  DTS:CreatorName="ASUSCREATOR\janin"
+  DTS:DTSID="{D2F76E1B-F1F9-4E02-88DE-121B2BB703D9}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Completion Time"
+  DTS:PackageType="5"
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{D92AC9CF-671C-4055-84DF-C303930439B0}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ASUSCREATOR.DWBI_Restaurant_DW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{009E33DA-BE93-42FA-A47B-174AFE888295}"
+      DTS:ObjectName="ASUSCREATOR.DWBI_Restaurant_DW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ASUSCREATOR;Initial Catalog=DWBI_Restaurant_DW;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Completion Time-{009E33DA-BE93-42FA-A47B-174AFE888295}ASUSCREATOR.DWBI_Restaurant_DW;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ASUSCREATOR.DWBI_Restaurant_Staging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{CF48DB0A-4F5D-440C-9254-5BC51B2A502B}"
+      DTS:ObjectName="ASUSCREATOR.DWBI_Restaurant_Staging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ASUSCREATOR;Initial Catalog=DWBI_Restaurant_Staging;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Completion Time-{CF48DB0A-4F5D-440C-9254-5BC51B2A502B}ASUSCREATOR.DWBI_Restaurant_Staging;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{31675203-B35B-4EB9-AA94-D45C5F78F19E}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\SLIIT\Y3S1\DWBI\Assignment\Restaurant-bookings\Completion.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BookingID"
+              DTS:DTSID="{5463B0E3-C2B7-4E19-A3BA-B5D7DD13149F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AccmTxnCompleteTime"
+              DTS:DTSID="{4A350790-8166-4574-BBD9-9DFDEB976752}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{CA45A26A-3979-4B89-B8CD-D5E75FCB5126}"
+      DTS:ObjectName="Flat File Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\SLIIT\Y3S1\DWBI\Assignment\Restaurant-bookings\Completion.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BookingID"
+              DTS:DTSID="{A31EC14E-3703-44A9-BA04-E2820FCA8E02}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AccmTxnCompleteTime"
+              DTS:DTSID="{156418B4-2AF4-424E-9B14-65BD6F813B84}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Extract Data to Completion Time Staging Table"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{91BA65B1-5329-48C5-951E-9DE4D5582139}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Extract Data to Completion Time Staging Table"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Extract Data to Completion Time Staging Table\Completion Time Staging Table"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Completion Time Staging Table"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[StgCompletionTime]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract Data to Completion Time Staging Table\Completion Time Staging Table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ASUSCREATOR.DWBI_Restaurant_Staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[ASUSCREATOR.DWBI_Restaurant_Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extract Data to Completion Time Staging Table\Completion Time Staging Table.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extract Data to Completion Time Staging Table\Completion Time Staging Table.Inputs[OLE DB Destination Input].Columns[BookingID]"
+                      cachedDataType="i4"
+                      cachedName="BookingID"
+                      externalMetadataColumnId="Package\Extract Data to Completion Time Staging Table\Completion Time Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[BookingID]"
+                      lineageId="Package\Extract Data to Completion Time Staging Table\Flat File Source.Outputs[Flat File Source Output].Columns[BookingID]" />
+                    <inputColumn
+                      refId="Package\Extract Data to Completion Time Staging Table\Completion Time Staging Table.Inputs[OLE DB Destination Input].Columns[AccmTxnCompleteTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="AccmTxnCompleteTime"
+                      externalMetadataColumnId="Package\Extract Data to Completion Time Staging Table\Completion Time Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[AccmTxnCompleteTime]"
+                      lineageId="Package\Extract Data to Completion Time Staging Table\Flat File Source.Outputs[Flat File Source Output].Columns[AccmTxnCompleteTime]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extract Data to Completion Time Staging Table\Completion Time Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[BookingID]"
+                      dataType="i4"
+                      name="BookingID" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Data to Completion Time Staging Table\Completion Time Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[AccmTxnCompleteTime]"
+                      dataType="dbTimeStamp"
+                      name="AccmTxnCompleteTime" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extract Data to Completion Time Staging Table\Completion Time Staging Table.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Extract Data to Completion Time Staging Table\Completion Time Staging Table.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Data to Completion Time Staging Table\Completion Time Staging Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract Data to Completion Time Staging Table\Completion Time Staging Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract Data to Completion Time Staging Table\Completion Time Staging Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract Data to Completion Time Staging Table\Completion Time Staging Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extract Data to Completion Time Staging Table\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract Data to Completion Time Staging Table\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Extract Data to Completion Time Staging Table\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Data to Completion Time Staging Table\Flat File Source.Outputs[Flat File Source Output].Columns[BookingID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Data to Completion Time Staging Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[BookingID]"
+                      lineageId="Package\Extract Data to Completion Time Staging Table\Flat File Source.Outputs[Flat File Source Output].Columns[BookingID]"
+                      name="BookingID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract Data to Completion Time Staging Table\Flat File Source.Outputs[Flat File Source Output].Columns[AccmTxnCompleteTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Data to Completion Time Staging Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[AccmTxnCompleteTime]"
+                      lineageId="Package\Extract Data to Completion Time Staging Table\Flat File Source.Outputs[Flat File Source Output].Columns[AccmTxnCompleteTime]"
+                      name="AccmTxnCompleteTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extract Data to Completion Time Staging Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[BookingID]"
+                      dataType="i4"
+                      name="BookingID" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Data to Completion Time Staging Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[AccmTxnCompleteTime]"
+                      dataType="dbTimeStamp"
+                      name="AccmTxnCompleteTime" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Extract Data to Completion Time Staging Table\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Data to Completion Time Staging Table\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Extract Data to Completion Time Staging Table\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Extract Data to Completion Time Staging Table\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract Data to Completion Time Staging Table\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract Data to Completion Time Staging Table\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract Data to Completion Time Staging Table\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extract Data to Completion Time Staging Table\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[StgCompletionTime]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[StgCompletionTime]) [refTable]
+where [refTable].[BookingID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="BookingID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="AccmTxnCompleteTime" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Extract Data to Completion Time Staging Table\Flat File Source.Outputs[Flat File Source Output].Columns[BookingID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract Data to Completion Time Staging Table\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ASUSCREATOR.DWBI_Restaurant_Staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[ASUSCREATOR.DWBI_Restaurant_Staging]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extract Data to Completion Time Staging Table\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extract Data to Completion Time Staging Table\Lookup.Inputs[Lookup Input].Columns[BookingID]"
+                      cachedDataType="i4"
+                      cachedName="BookingID"
+                      lineageId="Package\Extract Data to Completion Time Staging Table\Flat File Source.Outputs[Flat File Source Output].Columns[BookingID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">BookingID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extract Data to Completion Time Staging Table\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Extract Data to Completion Time Staging Table\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Extract Data to Completion Time Staging Table\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Extract Data to Completion Time Staging Table\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Extract Data to Completion Time Staging Table\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Extract Data to Completion Time Staging Table\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Data to Completion Time Staging Table\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract Data to Completion Time Staging Table\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract Data to Completion Time Staging Table\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract Data to Completion Time Staging Table\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Extract Data to Completion Time Staging Table.Paths[Flat File Source Output]"
+              endId="Package\Extract Data to Completion Time Staging Table\Lookup.Inputs[Lookup Input]"
+              name="Flat File Source Output"
+              startId="Package\Extract Data to Completion Time Staging Table\Flat File Source.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Extract Data to Completion Time Staging Table.Paths[Lookup No Match Output]"
+              endId="Package\Extract Data to Completion Time Staging Table\Completion Time Staging Table.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\Extract Data to Completion Time Staging Table\Lookup.Outputs[Lookup No Match Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update Fact table with Completion Time"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{231F4A77-0294-484A-8897-BE0E00B4BE46}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update Fact table with Completion Time"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Update Fact table with Completion Time\Calculate Process Time"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Calculate Process Time"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Update Fact table with Completion Time\Calculate Process Time.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Update Fact table with Completion Time\Calculate Process Time.Inputs[Derived Column Input].Columns[AccmTxnCompleteTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="AccmTxnCompleteTime"
+                      lineageId="Package\Update Fact table with Completion Time\Load Completion Time Staging Table.Outputs[OLE DB Source Output].Columns[AccmTxnCompleteTime]" />
+                    <inputColumn
+                      refId="Package\Update Fact table with Completion Time\Calculate Process Time.Inputs[Derived Column Input].Columns[AccmTxnCreateTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="AccmTxnCreateTime"
+                      lineageId="Package\Update Fact table with Completion Time\Lookup for Booking ID.Outputs[Lookup Match Output].Columns[AccmTxnCreateTime]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Update Fact table with Completion Time\Calculate Process Time.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Update Fact table with Completion Time\Calculate Process Time.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update Fact table with Completion Time\Calculate Process Time.Outputs[Derived Column Output].Columns[ProcessTimeDerived]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Update Fact table with Completion Time\Calculate Process Time.Outputs[Derived Column Output].Columns[ProcessTimeDerived]"
+                      name="ProcessTimeDerived"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[DATEDIFF]("hour",#{Package\Update Fact table with Completion Time\Lookup for Booking ID.Outputs[Lookup Match Output].Columns[AccmTxnCreateTime]},#{Package\Update Fact table with Completion Time\Load Completion Time Staging Table.Outputs[OLE DB Source Output].Columns[AccmTxnCompleteTime]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DATEDIFF("hour",AccmTxnCreateTime,AccmTxnCompleteTime)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Update Fact table with Completion Time\Calculate Process Time.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Update Fact table with Completion Time\Calculate Process Time.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update Fact table with Completion Time\Calculate Process Time.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Update Fact table with Completion Time\Calculate Process Time.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Update Fact table with Completion Time\Calculate Process Time.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Update Fact table with Completion Time\Calculate Process Time.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Update Fact table with Completion Time\Load Completion Time Staging Table"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Load Completion Time Staging Table"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[StgCompletionTime]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Update Fact table with Completion Time\Load Completion Time Staging Table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ASUSCREATOR.DWBI_Restaurant_Staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[ASUSCREATOR.DWBI_Restaurant_Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Update Fact table with Completion Time\Load Completion Time Staging Table.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update Fact table with Completion Time\Load Completion Time Staging Table.Outputs[OLE DB Source Output].Columns[BookingID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update Fact table with Completion Time\Load Completion Time Staging Table.Outputs[OLE DB Source Output].ExternalColumns[BookingID]"
+                      lineageId="Package\Update Fact table with Completion Time\Load Completion Time Staging Table.Outputs[OLE DB Source Output].Columns[BookingID]"
+                      name="BookingID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update Fact table with Completion Time\Load Completion Time Staging Table.Outputs[OLE DB Source Output].Columns[AccmTxnCompleteTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update Fact table with Completion Time\Load Completion Time Staging Table.Outputs[OLE DB Source Output].ExternalColumns[AccmTxnCompleteTime]"
+                      lineageId="Package\Update Fact table with Completion Time\Load Completion Time Staging Table.Outputs[OLE DB Source Output].Columns[AccmTxnCompleteTime]"
+                      name="AccmTxnCompleteTime"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Update Fact table with Completion Time\Load Completion Time Staging Table.Outputs[OLE DB Source Output].ExternalColumns[BookingID]"
+                      dataType="i4"
+                      name="BookingID" />
+                    <externalMetadataColumn
+                      refId="Package\Update Fact table with Completion Time\Load Completion Time Staging Table.Outputs[OLE DB Source Output].ExternalColumns[AccmTxnCompleteTime]"
+                      dataType="dbTimeStamp"
+                      name="AccmTxnCompleteTime" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Update Fact table with Completion Time\Load Completion Time Staging Table.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update Fact table with Completion Time\Load Completion Time Staging Table.Outputs[OLE DB Source Error Output].Columns[BookingID]"
+                      dataType="i4"
+                      lineageId="Package\Update Fact table with Completion Time\Load Completion Time Staging Table.Outputs[OLE DB Source Error Output].Columns[BookingID]"
+                      name="BookingID" />
+                    <outputColumn
+                      refId="Package\Update Fact table with Completion Time\Load Completion Time Staging Table.Outputs[OLE DB Source Error Output].Columns[AccmTxnCompleteTime]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Update Fact table with Completion Time\Load Completion Time Staging Table.Outputs[OLE DB Source Error Output].Columns[AccmTxnCompleteTime]"
+                      name="AccmTxnCompleteTime" />
+                    <outputColumn
+                      refId="Package\Update Fact table with Completion Time\Load Completion Time Staging Table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Update Fact table with Completion Time\Load Completion Time Staging Table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Update Fact table with Completion Time\Load Completion Time Staging Table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Update Fact table with Completion Time\Load Completion Time Staging Table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Update Fact table with Completion Time\Lookup for Booking ID"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup for Booking ID"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[FactBooking]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[FactBooking]) [refTable]
+where [refTable].[BookingID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="BookingID" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="RestaurantID" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="DateID" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="People" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Status" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="IsPrepaySatisfied" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="AccmTxnCreateTime" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="AccmTxnCompleteTime" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TxnProcessTimeHours" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MemberSK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PurposeSK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Update Fact table with Completion Time\Load Completion Time Staging Table.Outputs[OLE DB Source Output].Columns[BookingID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Update Fact table with Completion Time\Lookup for Booking ID.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ASUSCREATOR.DWBI_Restaurant_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[ASUSCREATOR.DWBI_Restaurant_DW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Update Fact table with Completion Time\Lookup for Booking ID.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Update Fact table with Completion Time\Lookup for Booking ID.Inputs[Lookup Input].Columns[BookingID]"
+                      cachedDataType="i4"
+                      cachedName="BookingID"
+                      lineageId="Package\Update Fact table with Completion Time\Load Completion Time Staging Table.Outputs[OLE DB Source Output].Columns[BookingID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">BookingID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Update Fact table with Completion Time\Lookup for Booking ID.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Update Fact table with Completion Time\Lookup for Booking ID.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update Fact table with Completion Time\Lookup for Booking ID.Outputs[Lookup Match Output].Columns[AccmTxnCreateTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Update Fact table with Completion Time\Lookup for Booking ID.Outputs[Lookup Match Output].Columns[AccmTxnCreateTime]"
+                      name="AccmTxnCreateTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">AccmTxnCreateTime</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Update Fact table with Completion Time\Lookup for Booking ID.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Update Fact table with Completion Time\Lookup for Booking ID.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Update Fact table with Completion Time\Lookup for Booking ID.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Update Fact table with Completion Time\Lookup for Booking ID.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update Fact table with Completion Time\Lookup for Booking ID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Update Fact table with Completion Time\Lookup for Booking ID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Update Fact table with Completion Time\Lookup for Booking ID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Update Fact table with Completion Time\Lookup for Booking ID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Update Fact table with Completion Time\Updating Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Updating Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE dbo.FactBooking
+SET AccmTxnCompleteTime = ?, 
+    TxnProcessTimeHours = ?
+WHERE BookingID = ?
+</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Update Fact table with Completion Time\Updating Command.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ASUSCREATOR.DWBI_Restaurant_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[ASUSCREATOR.DWBI_Restaurant_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Update Fact table with Completion Time\Updating Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Update Fact table with Completion Time\Updating Command.Inputs[OLE DB Command Input].Columns[BookingID]"
+                      cachedDataType="i4"
+                      cachedName="BookingID"
+                      externalMetadataColumnId="Package\Update Fact table with Completion Time\Updating Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Update Fact table with Completion Time\Load Completion Time Staging Table.Outputs[OLE DB Source Output].Columns[BookingID]" />
+                    <inputColumn
+                      refId="Package\Update Fact table with Completion Time\Updating Command.Inputs[OLE DB Command Input].Columns[AccmTxnCompleteTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="AccmTxnCompleteTime"
+                      externalMetadataColumnId="Package\Update Fact table with Completion Time\Updating Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Update Fact table with Completion Time\Load Completion Time Staging Table.Outputs[OLE DB Source Output].Columns[AccmTxnCompleteTime]" />
+                    <inputColumn
+                      refId="Package\Update Fact table with Completion Time\Updating Command.Inputs[OLE DB Command Input].Columns[ProcessTimeDerived]"
+                      cachedDataType="i4"
+                      cachedName="ProcessTimeDerived"
+                      externalMetadataColumnId="Package\Update Fact table with Completion Time\Updating Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Update Fact table with Completion Time\Calculate Process Time.Outputs[Derived Column Output].Columns[ProcessTimeDerived]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Update Fact table with Completion Time\Updating Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="dbTimeStamp"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Update Fact table with Completion Time\Updating Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Update Fact table with Completion Time\Updating Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="i4"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Update Fact table with Completion Time\Updating Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Update Fact table with Completion Time\Updating Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Update Fact table with Completion Time\Updating Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Update Fact table with Completion Time\Updating Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update Fact table with Completion Time\Updating Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Update Fact table with Completion Time\Updating Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Update Fact table with Completion Time\Updating Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Update Fact table with Completion Time\Updating Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Update Fact table with Completion Time.Paths[Derived Column Output]"
+              endId="Package\Update Fact table with Completion Time\Updating Command.Inputs[OLE DB Command Input]"
+              name="Derived Column Output"
+              startId="Package\Update Fact table with Completion Time\Calculate Process Time.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Update Fact table with Completion Time.Paths[Lookup Match Output]"
+              endId="Package\Update Fact table with Completion Time\Calculate Process Time.Inputs[Derived Column Input]"
+              name="Lookup Match Output"
+              startId="Package\Update Fact table with Completion Time\Lookup for Booking ID.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Update Fact table with Completion Time.Paths[OLE DB Source Output]"
+              endId="Package\Update Fact table with Completion Time\Lookup for Booking ID.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\Update Fact table with Completion Time\Load Completion Time Staging Table.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{2363FB35-1AD0-451B-8AD7-DA9D9A097B54}"
+      DTS:From="Package\Extract Data to Completion Time Staging Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Update Fact table with Completion Time" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnPreExecute]"
+      DTS:CreationName="OnPreExecute"
+      DTS:DTSID="{61E9F19C-97A9-4055-9BD7-D6773F1A2449}"
+      DTS:EventID="-1048576"
+      DTS:EventName="OnPreExecute"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{FDB76329-ACEA-4E10-8B3A-5A8DF309F5D7}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnPreExecute]\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{F71B9ED8-6F8B-4757-B6F3-F5AC6DAA8DA8}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{CF48DB0A-4F5D-440C-9254-5BC51B2A502B}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [dbo].[StgCompletionTime]"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="300,41.6"
+          Id="Package\Extract Data to Completion Time Staging Table"
+          TopLeft="323.571429260227,101.705882263792" />
+        <NodeLayout
+          Size="267.2,41.6"
+          Id="Package\Update Fact table with Completion Time"
+          TopLeft="365.000000776989,262.294117417148" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="473.571429260227,143.305882263792">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="25.028571516762,118.988235153356"
+              Start="0,0"
+              End="25.028571516762,111.488235153356">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.494117576678" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,55.494117576678"
+                    Point2="0,59.494117576678"
+                    Point3="4,59.494117576678" />
+                  <mssgle:LineSegment
+                    End="21.028571516762,59.494117576678" />
+                  <mssgle:CubicBezierSegment
+                    Point1="21.028571516762,59.494117576678"
+                    Point2="25.028571516762,59.494117576678"
+                    Point3="25.028571516762,63.494117576678" />
+                  <mssgle:LineSegment
+                    End="25.028571516762,111.488235153356" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Extract Data to Completion Time Staging Table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Extract Data to Completion Time Staging Table\Flat File Source"
+          TopLeft="369.285715071827,202.647058645901" />
+        <NodeLayout
+          Size="225.6,41.6"
+          Id="Package\Extract Data to Completion Time Staging Table\Completion Time Staging Table"
+          TopLeft="361.428572197958,405.294117291803" />
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\Extract Data to Completion Time Staging Table\Lookup"
+          TopLeft="243.571429089928,298.235293856232" />
+        <EdgeLayout
+          Id="Package\Extract Data to Completion Time Staging Table.Paths[Flat File Source Output]"
+          TopLeft="444.485715071827,244.247058645901">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-144.514285981899,53.9882352103313"
+              Start="0,0"
+              End="-144.514285981899,46.4882352103313">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.9941176051656" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.9941176051656"
+                    Point2="0,26.9941176051656"
+                    Point3="-4,26.9941176051656" />
+                  <mssgle:LineSegment
+                    End="-140.514285981899,26.9941176051656" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-140.514285981899,26.9941176051656"
+                    Point2="-144.514285981899,26.9941176051656"
+                    Point3="-144.514285981899,30.9941176051656" />
+                  <mssgle:LineSegment
+                    End="-144.514285981899,46.4882352103313" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Extract Data to Completion Time Staging Table.Paths[Lookup No Match Output]"
+          TopLeft="299.971429089928,339.835293856232">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="174.25714310803,65.4588234355707"
+              Start="0,0"
+              End="174.25714310803,57.9588234355707">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.7294117177854" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.7294117177854"
+                    Point2="0,32.7294117177854"
+                    Point3="4,32.7294117177854" />
+                  <mssgle:LineSegment
+                    End="170.25714310803,32.7294117177854" />
+                  <mssgle:CubicBezierSegment
+                    Point1="170.25714310803,32.7294117177854"
+                    Point2="174.25714310803,32.7294117177854"
+                    Point3="174.25714310803,36.7294117177854" />
+                  <mssgle:LineSegment
+                    End="174.25714310803,57.9588234355707" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="31.3221848352649,37.7294117177854,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Data to Completion Time Staging Table\Completion Time Staging Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Update Fact table with Completion Time">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="251.2,41.6"
+          Id="Package\Update Fact table with Completion Time\Load Completion Time Staging Table"
+          TopLeft="523.999992191792,99.9999985098839" />
+        <NodeLayout
+          Size="184,41.6"
+          Id="Package\Update Fact table with Completion Time\Lookup for Booking ID"
+          TopLeft="262.999996080994,289.999995678663" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Update Fact table with Completion Time\Updating Command"
+          TopLeft="664.999990090728,495.999992609024" />
+        <NodeLayout
+          Size="186.4,41.6"
+          Id="Package\Update Fact table with Completion Time\Calculate Process Time"
+          TopLeft="471.999992966652,388.999994203448" />
+        <EdgeLayout
+          Id="Package\Update Fact table with Completion Time.Paths[OLE DB Source Output]"
+          TopLeft="649.599992191792,141.599998509884">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-294.599996110797,148.399997168779"
+              Start="0,0"
+              End="-294.599996110797,140.899997168779">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70.1999985843897" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,70.1999985843897"
+                    Point2="0,74.1999985843897"
+                    Point3="-4,74.1999985843897" />
+                  <mssgle:LineSegment
+                    End="-290.599996110797,74.1999985843897" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-290.599996110797,74.1999985843897"
+                    Point2="-294.599996110797,74.1999985843897"
+                    Point3="-294.599996110797,78.1999985843897" />
+                  <mssgle:LineSegment
+                    End="-294.599996110797,140.899997168779" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update Fact table with Completion Time.Paths[Lookup Match Output]"
+          TopLeft="354.999996080994,331.599995678663">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="210.199996885658,57.3999985247851"
+              Start="0,0"
+              End="210.199996885658,49.8999985247851">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.6999992623925" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.6999992623925"
+                    Point2="0,28.6999992623925"
+                    Point3="4,28.6999992623925" />
+                  <mssgle:LineSegment
+                    End="206.199996885658,28.6999992623925" />
+                  <mssgle:CubicBezierSegment
+                    Point1="206.199996885658,28.6999992623925"
+                    Point2="210.199996885658,28.6999992623925"
+                    Point3="210.199996885658,32.6999992623925" />
+                  <mssgle:LineSegment
+                    End="210.199996885658,49.8999985247851" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="56.908611724079,33.6999992623925,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update Fact table with Completion Time.Paths[Derived Column Output]"
+          TopLeft="565.199992966652,430.599994203448">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="185.399997124076,65.3999984055757"
+              Start="0,0"
+              End="185.399997124076,57.8999984055757">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.6999992027878" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.6999992027878"
+                    Point2="0,32.6999992027878"
+                    Point3="4,32.6999992027878" />
+                  <mssgle:LineSegment
+                    End="181.399997124076,32.6999992027878" />
+                  <mssgle:CubicBezierSegment
+                    Point1="181.399997124076,32.6999992027878"
+                    Point2="185.399997124076,32.6999992027878"
+                    Point3="185.399997124076,36.6999992027878" />
+                  <mssgle:LineSegment
+                    End="185.399997124076,57.8999984055757" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Update Fact table with Completion Time\Load Completion Time Staging Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Update Fact table with Completion Time\Lookup for Booking ID">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[FactBooking]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnPreExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package.EventHandlers[OnPreExecute]\Execute SQL Task"
+          TopLeft="350.999994769692,238.999996438623" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Data to Completion Time Staging Table\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[StgCompletionTime]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

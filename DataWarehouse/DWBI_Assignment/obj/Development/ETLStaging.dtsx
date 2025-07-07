@@ -1,0 +1,3408 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/20/2025 3:43:11 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ASUSCREATOR"
+  DTS:CreatorName="ASUSCREATOR\janin"
+  DTS:DTSID="{0A91036E-66E0-42BF-B3CB-55701433692B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ETLStaging"
+  DTS:PackageType="5"
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{A39CD846-F25E-411A-B3E5-7C4B58964825}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ASUSCREATOR.DWBI_Restaurant_Source]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E044B653-62FA-49AF-8A1F-1AB9382F6965}"
+      DTS:ObjectName="ASUSCREATOR.DWBI_Restaurant_Source">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ASUSCREATOR;Initial Catalog=DWBI_Restaurant_Source;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-ETLStaging-{E044B653-62FA-49AF-8A1F-1AB9382F6965}ASUSCREATOR.DWBI_Restaurant_Source;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ASUSCREATOR.DWBI_Restaurant_Staging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E1C59B96-9757-4CCC-9479-4232CE574AD8}"
+      DTS:ObjectName="ASUSCREATOR.DWBI_Restaurant_Staging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ASUSCREATOR;Initial Catalog=DWBI_Restaurant_Staging;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-ETLStaging-{E1C59B96-9757-4CCC-9479-4232CE574AD8}ASUSCREATOR.DWBI_Restaurant_Staging;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{5B95F729-B442-4C0F-A84D-42501913EA2A}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\SLIIT\Y3S1\DWBI\Assignment\Restaurant-bookings\Restaurant2.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="id"
+              DTS:DTSID="{5D002AB1-9908-43D6-8686-F7C1ABFD9E2C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="is_hotel"
+              DTS:DTSID="{81846F99-AF69-4E5F-AEC6-9F55ADBC5454}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="country"
+              DTS:DTSID="{00FB8EE5-255E-4388-8BC3-AD23B81003A8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="currency"
+              DTS:DTSID="{6F0E1B7A-B40B-4AD2-A1DB-B5BFF6B077D1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="city"
+              DTS:DTSID="{6187E795-940A-44AD-A703-7789E72DD67A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cityarea"
+              DTS:DTSID="{EEA6B294-AD38-4B2F-95C9-818A7F06EBD7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="name"
+              DTS:DTSID="{B04B399E-BF23-4639-9506-469938654CFD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="abbr"
+              DTS:DTSID="{7AC48B12-D17C-4337-8853-D7C141E02099}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="tel"
+              DTS:DTSID="{0B436B88-3203-4BA4-BA62-22BFBCE526BB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="good_for_family"
+              DTS:DTSID="{F76923AC-6194-4116-BA34-CCCDD3034302}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="accept_credit_card"
+              DTS:DTSID="{E27BECDD-3F0A-4FD1-A100-6E03CA771F79}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="parking"
+              DTS:DTSID="{990BF44C-8D81-4D20-909C-ACB8108D807A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="outdoor_seating"
+              DTS:DTSID="{D20937E7-26C9-40DE-A478-FB0F8030A6F9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="wifi"
+              DTS:DTSID="{D259A3A0-215B-42FA-8958-D9CA1F19889C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="wheelchair_accessible"
+              DTS:DTSID="{CCD2A9BE-F6AF-4011-B331-2D30CCA17ED7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="price1"
+              DTS:DTSID="{5CC991BD-4E03-4353-88B9-4246DB1C1792}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="price2"
+              DTS:DTSID="{FA951849-A37F-40DB-BA46-830423E0A279}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="lat"
+              DTS:DTSID="{39FAAB4F-C857-490C-A2A3-A7BDC79270B8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="lng"
+              DTS:DTSID="{B21600EF-9EC7-4F22-BDE3-AF5AACD750E3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="timezone"
+              DTS:DTSID="{E9BEC39E-D3C9-4129-AA86-08AF677C43B3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="locale"
+              DTS:DTSID="{50B6FFD0-02E8-4A49-A77C-1CCB978D58E4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cdate"
+              DTS:DTSID="{F5590D9F-6306-4F7B-9253-6FEE3629CAAB}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{75397D3C-31C9-4A93-A434-0CE656967FC2}"
+      DTS:ObjectName="Flat File Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\SLIIT\Y3S1\DWBI\Assignment\Restaurant-bookings\Restaurant.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="id"
+              DTS:DTSID="{F7A8F9B1-0F30-46B3-8C61-ADC93F71C1CD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="is_hotel"
+              DTS:DTSID="{886091B4-3ABE-420E-953C-6C9C8500EDFE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="country"
+              DTS:DTSID="{04502234-E9BA-427C-ACCC-AC68E4D177BD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="currency"
+              DTS:DTSID="{B7C80AE2-A149-48BC-8169-DC1BA6B374C8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="city"
+              DTS:DTSID="{367E977F-4CA5-4E49-BCA7-A3FC924DBD95}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cityarea"
+              DTS:DTSID="{97AB1120-53AD-49C4-95BF-CFFC31742D93}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="name"
+              DTS:DTSID="{E3111FFE-72F6-4E44-A056-E90DBE8222C6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="abbr"
+              DTS:DTSID="{F6184607-C5E2-406D-8136-C783A11CA8E5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="tel"
+              DTS:DTSID="{113259A1-6DC7-4BF1-94BA-40FCB5552D5E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="good_for_family"
+              DTS:DTSID="{0073E688-9298-4F0C-BE1C-5E19CA1F55E8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="accept_credit_card"
+              DTS:DTSID="{985F3799-17D4-477E-AD84-418129AF035F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="parking"
+              DTS:DTSID="{E9F54EB6-BA16-4659-8869-C53C106E1617}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="outdoor_seating"
+              DTS:DTSID="{5874CC55-25D8-4819-8886-6DB6EDB1D1EC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="wifi"
+              DTS:DTSID="{21ACBCC7-1647-4AB4-876B-AD4A0F54944D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="wheelchair_accessible"
+              DTS:DTSID="{7763A16E-BEE8-490C-ABF9-22BDB496D28A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="price1"
+              DTS:DTSID="{8F710B9A-A946-4875-A0E3-2FC9D54B7F3B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="price2"
+              DTS:DTSID="{863897B9-B93A-4385-B930-5A507A8EDC64}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="lat"
+              DTS:DTSID="{A61A4389-203E-4BFB-B517-BB2AE08C11C4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="lng"
+              DTS:DTSID="{602DAF2C-4723-40B1-A69B-2329523FA538}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="timezone"
+              DTS:DTSID="{0EB24BD9-6896-4F0B-A622-68B19DDFB2AC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="locale"
+              DTS:DTSID="{F50B116A-09A3-4B4D-A7BD-11B70143F912}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cdate"
+              DTS:DTSID="{E65F45DC-C5DC-4DB5-941A-618D58F39E94}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Restaurant Text File]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{5D536B2A-8FFC-4959-AD94-0746270200E2}"
+      DTS:ObjectName="Restaurant Text File">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\SLIIT\Y3S1\DWBI\Assignment\Restaurant-bookings\Restaurant.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="id"
+              DTS:DTSID="{95F9E774-FA50-42AD-A720-A5C56E860EC6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="is_hotel"
+              DTS:DTSID="{E0340F8B-24A3-4BAA-98B5-1069DDAD7EDE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="country"
+              DTS:DTSID="{6CA577EB-C4C8-439B-8010-456FD1396DBA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="currency"
+              DTS:DTSID="{F8F85DB0-312D-4029-88D1-78812B474152}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="city"
+              DTS:DTSID="{B1AE40F0-776E-485B-BBCD-F1F6C657EFC5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cityarea"
+              DTS:DTSID="{C39B5E1B-0B69-49E8-9BC0-BADDE0F30EBA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="name"
+              DTS:DTSID="{F44E248D-146B-4179-9F10-EF55B309C440}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="abbr"
+              DTS:DTSID="{7DB1499B-C5E3-4FC1-B975-72DCEAF8124F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="tel"
+              DTS:DTSID="{8D04ABB0-3B0A-444E-BE96-88E2D268F6B1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="good_for_family"
+              DTS:DTSID="{0776A965-2590-4B19-8C09-9EE110424299}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="accept_credit_card"
+              DTS:DTSID="{27A0418C-E22E-41C5-8305-4F818687E9D9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="parking"
+              DTS:DTSID="{2DC81B5B-EBB3-4E49-9CC6-0C785063806D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="outdoor_seating"
+              DTS:DTSID="{CA943F4A-BE9D-4CB2-B197-361406F5E6C9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="wifi"
+              DTS:DTSID="{5E5991EE-E279-4500-867C-E6EE7A7770F7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="wheelchair_accessible"
+              DTS:DTSID="{835BDED5-A19F-4529-B6DA-E84B2C82BFB3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="price1"
+              DTS:DTSID="{1DDDFC93-6D83-4C6E-B44E-34209DE85C22}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="price2"
+              DTS:DTSID="{202CA77B-F11C-4400-9AAD-26768381F2C7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="lat"
+              DTS:DTSID="{36F6D645-AC1E-4AE5-88ED-F4995541814E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="lng"
+              DTS:DTSID="{48043488-406F-4276-8E5F-1C2C0CA1F8B7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="timezone"
+              DTS:DTSID="{0797FC8B-981D-41DF-8D7E-0DD43E06034F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="locale"
+              DTS:DTSID="{60C46B13-C46F-4923-9D9E-0547784A8F66}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cdate"
+              DTS:DTSID="{8BA01D8F-0DBD-4261-A881-90E00EAB499C}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Loading Booking Source to Staging"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{3D51E822-D01E-4EE3-A296-DD5FF5989197}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Loading Booking Source to Staging"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\Loading Booking Source to Staging.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{313AFAF3-CFC7-49AE-8D89-33F508CB7ED9}"
+          DTS:EventID="3145776"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{2A712E8B-22BF-4984-8E37-6AE77DF2CDFE}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables />
+        </DTS:EventHandler>
+        <DTS:EventHandler
+          DTS:refId="Package\Loading Booking Source to Staging.EventHandlers[OnPreExecute]"
+          DTS:CreationName="OnPreExecute"
+          DTS:DTSID="{F4CA2675-8887-4896-A3C1-3F48EE5504DA}"
+          DTS:EventID="0"
+          DTS:EventName="OnPreExecute"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{6977787C-851E-4F77-BB49-E82E10327721}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Loading Booking Source to Staging.EventHandlers[OnPreExecute]\Truncate Booking Staging Table"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{223D90AF-3B7F-4383-AE24-DFF1B8A09806}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Truncate Booking Staging Table"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{E1C59B96-9757-4CCC-9479-4232CE574AD8}"
+                  SQLTask:SqlStatementSource="truncate table dbo.StgBooking" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Loading Booking Source to Staging\Booking Source Table"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Booking Source Table"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Booking]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Loading Booking Source to Staging\Booking Source Table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ASUSCREATOR.DWBI_Restaurant_Source]"
+                  connectionManagerRefId="Package.ConnectionManagers[ASUSCREATOR.DWBI_Restaurant_Source]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[booking_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].ExternalColumns[booking_id]"
+                      length="50"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[booking_id]"
+                      name="booking_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[member_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].ExternalColumns[member_id]"
+                      length="50"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[member_id]"
+                      name="member_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[cdate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].ExternalColumns[cdate]"
+                      length="50"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[cdate]"
+                      name="cdate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[restaurant_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].ExternalColumns[restaurant_id]"
+                      length="50"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[restaurant_id]"
+                      name="restaurant_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[datetime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].ExternalColumns[datetime]"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[datetime]"
+                      name="datetime"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[people]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].ExternalColumns[people]"
+                      length="50"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[people]"
+                      name="people"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[purpose]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].ExternalColumns[purpose]"
+                      length="50"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[purpose]"
+                      name="purpose"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[status]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].ExternalColumns[status]"
+                      length="50"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[status]"
+                      name="status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[is_required_prepay_satisfied]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].ExternalColumns[is_required_prepay_satisfied]"
+                      length="50"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[is_required_prepay_satisfied]"
+                      name="is_required_prepay_satisfied"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[return90]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].ExternalColumns[return90]"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[return90]"
+                      name="return90"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[gender]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].ExternalColumns[gender]"
+                      length="50"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[gender]"
+                      name="gender"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].ExternalColumns[booking_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="booking_id" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].ExternalColumns[member_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="member_id" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].ExternalColumns[cdate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cdate" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].ExternalColumns[restaurant_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="restaurant_id" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].ExternalColumns[datetime]"
+                      dataType="dbTimeStamp"
+                      name="datetime" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].ExternalColumns[people]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="people" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].ExternalColumns[purpose]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="purpose" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].ExternalColumns[gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="gender" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].ExternalColumns[status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="status" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].ExternalColumns[is_required_prepay_satisfied]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="is_required_prepay_satisfied" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].ExternalColumns[return90]"
+                      dataType="i4"
+                      name="return90" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Error Output].Columns[booking_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Error Output].Columns[booking_id]"
+                      name="booking_id" />
+                    <outputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Error Output].Columns[member_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Error Output].Columns[member_id]"
+                      name="member_id" />
+                    <outputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Error Output].Columns[cdate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Error Output].Columns[cdate]"
+                      name="cdate" />
+                    <outputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Error Output].Columns[restaurant_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Error Output].Columns[restaurant_id]"
+                      name="restaurant_id" />
+                    <outputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Error Output].Columns[datetime]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Error Output].Columns[datetime]"
+                      name="datetime" />
+                    <outputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Error Output].Columns[people]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Error Output].Columns[people]"
+                      name="people" />
+                    <outputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Error Output].Columns[purpose]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Error Output].Columns[purpose]"
+                      name="purpose" />
+                    <outputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Error Output].Columns[status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Error Output].Columns[status]"
+                      name="status" />
+                    <outputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Error Output].Columns[is_required_prepay_satisfied]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Error Output].Columns[is_required_prepay_satisfied]"
+                      name="is_required_prepay_satisfied" />
+                    <outputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Error Output].Columns[return90]"
+                      dataType="i4"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Error Output].Columns[return90]"
+                      name="return90" />
+                    <outputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Error Output].Columns[gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Error Output].Columns[gender]"
+                      name="gender" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Loading Booking Source to Staging\Booking Staging Table"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Booking Staging Table"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[StgBooking]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Loading Booking Source to Staging\Booking Staging Table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ASUSCREATOR.DWBI_Restaurant_Staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[ASUSCREATOR.DWBI_Restaurant_Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].Columns[booking_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="booking_id"
+                      externalMetadataColumnId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[booking_id]"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[booking_id]" />
+                    <inputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].Columns[member_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="member_id"
+                      externalMetadataColumnId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[member_id]"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[member_id]" />
+                    <inputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].Columns[cdate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="cdate"
+                      externalMetadataColumnId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[cdate]"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[cdate]" />
+                    <inputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].Columns[restaurant_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="restaurant_id"
+                      externalMetadataColumnId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[restaurant_id]"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[restaurant_id]" />
+                    <inputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].Columns[datetime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="datetime"
+                      externalMetadataColumnId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[datetime]"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[datetime]" />
+                    <inputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].Columns[people]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="people"
+                      externalMetadataColumnId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[people]"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[people]" />
+                    <inputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].Columns[purpose]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="purpose"
+                      externalMetadataColumnId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[purpose]"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[purpose]" />
+                    <inputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].Columns[gender]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="gender"
+                      externalMetadataColumnId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[gender]"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[gender]" />
+                    <inputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].Columns[status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="status"
+                      externalMetadataColumnId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[status]"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[status]" />
+                    <inputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].Columns[is_required_prepay_satisfied]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="is_required_prepay_satisfied"
+                      externalMetadataColumnId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[is_required_prepay_satisfied]"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output].Columns[is_required_prepay_satisfied]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[booking_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="booking_id" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[member_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="member_id" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[cdate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cdate" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[restaurant_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="restaurant_id" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[datetime]"
+                      dataType="dbTimeStamp"
+                      name="datetime" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[people]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="people" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[purpose]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="purpose" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="gender" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="status" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[is_required_prepay_satisfied]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="is_required_prepay_satisfied" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[return90]"
+                      dataType="i4"
+                      name="return90" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Loading Booking Source to Staging\Booking Staging Table.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Staging Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Staging Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Loading Booking Source to Staging\Booking Staging Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Loading Booking Source to Staging\Booking Staging Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Loading Booking Source to Staging.Paths[OLE DB Source Output]"
+              endId="Package\Loading Booking Source to Staging\Booking Staging Table.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Loading Booking Source to Staging\Booking Source Table.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Loading Member Source to Staging"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{F9DC687E-4799-46E0-BCBF-7C23BD989F35}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Loading Member Source to Staging"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\Loading Member Source to Staging.EventHandlers[OnPreExecute]"
+          DTS:CreationName="OnPreExecute"
+          DTS:DTSID="{A7F640CD-F257-4989-B873-EEBB6F2BD0F7}"
+          DTS:EventID="0"
+          DTS:EventName="OnPreExecute"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{0E6AD611-51E9-451A-AE07-AF36161E499D}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Loading Member Source to Staging.EventHandlers[OnPreExecute]\Truncate Member Staging Table"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{9E64EF56-AF6A-4AA8-AED2-69B5AA4863E9}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Truncate Member Staging Table"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{E1C59B96-9757-4CCC-9479-4232CE574AD8}"
+                  SQLTask:SqlStatementSource="truncate table dbo.StgMember" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Loading Member Source to Staging\Member Source Table"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Member Source Table"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Member]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Loading Member Source to Staging\Member Source Table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ASUSCREATOR.DWBI_Restaurant_Source]"
+                  connectionManagerRefId="Package.ConnectionManagers[ASUSCREATOR.DWBI_Restaurant_Source]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output].Columns[id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      length="50"
+                      lineageId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output].Columns[is_vip]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output].ExternalColumns[is_vip]"
+                      length="50"
+                      lineageId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output].Columns[is_vip]"
+                      name="is_vip"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output].Columns[gender]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output].ExternalColumns[gender]"
+                      length="50"
+                      lineageId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output].Columns[gender]"
+                      name="gender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output].Columns[birthdate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output].ExternalColumns[birthdate]"
+                      length="50"
+                      lineageId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output].Columns[birthdate]"
+                      name="birthdate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output].Columns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                      length="50"
+                      lineageId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output].Columns[city]"
+                      name="city"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output].Columns[cdate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output].ExternalColumns[cdate]"
+                      length="50"
+                      lineageId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output].Columns[cdate]"
+                      name="cdate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output].ExternalColumns[is_vip]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="is_vip" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output].ExternalColumns[gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="gender" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output].ExternalColumns[birthdate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="birthdate" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output].ExternalColumns[cdate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cdate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Error Output].Columns[id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Error Output].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Error Output].Columns[is_vip]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Error Output].Columns[is_vip]"
+                      name="is_vip" />
+                    <outputColumn
+                      refId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Error Output].Columns[gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Error Output].Columns[gender]"
+                      name="gender" />
+                    <outputColumn
+                      refId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Error Output].Columns[birthdate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Error Output].Columns[birthdate]"
+                      name="birthdate" />
+                    <outputColumn
+                      refId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Error Output].Columns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Error Output].Columns[city]"
+                      name="city" />
+                    <outputColumn
+                      refId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Error Output].Columns[cdate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Error Output].Columns[cdate]"
+                      name="cdate" />
+                    <outputColumn
+                      refId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Loading Member Source to Staging\Member Staging Table"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Member Staging Table"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[StgMember]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Loading Member Source to Staging\Member Staging Table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ASUSCREATOR.DWBI_Restaurant_Staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[ASUSCREATOR.DWBI_Restaurant_Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Loading Member Source to Staging\Member Staging Table.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Loading Member Source to Staging\Member Staging Table.Inputs[OLE DB Destination Input].Columns[id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\Loading Member Source to Staging\Member Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      lineageId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output].Columns[id]" />
+                    <inputColumn
+                      refId="Package\Loading Member Source to Staging\Member Staging Table.Inputs[OLE DB Destination Input].Columns[is_vip]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="is_vip"
+                      externalMetadataColumnId="Package\Loading Member Source to Staging\Member Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[is_vip]"
+                      lineageId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output].Columns[is_vip]" />
+                    <inputColumn
+                      refId="Package\Loading Member Source to Staging\Member Staging Table.Inputs[OLE DB Destination Input].Columns[gender]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="gender"
+                      externalMetadataColumnId="Package\Loading Member Source to Staging\Member Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[gender]"
+                      lineageId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output].Columns[gender]" />
+                    <inputColumn
+                      refId="Package\Loading Member Source to Staging\Member Staging Table.Inputs[OLE DB Destination Input].Columns[birthdate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="birthdate"
+                      externalMetadataColumnId="Package\Loading Member Source to Staging\Member Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[birthdate]"
+                      lineageId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output].Columns[birthdate]" />
+                    <inputColumn
+                      refId="Package\Loading Member Source to Staging\Member Staging Table.Inputs[OLE DB Destination Input].Columns[city]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="city"
+                      externalMetadataColumnId="Package\Loading Member Source to Staging\Member Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                      lineageId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output].Columns[city]" />
+                    <inputColumn
+                      refId="Package\Loading Member Source to Staging\Member Staging Table.Inputs[OLE DB Destination Input].Columns[cdate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="cdate"
+                      externalMetadataColumnId="Package\Loading Member Source to Staging\Member Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[cdate]"
+                      lineageId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output].Columns[cdate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Loading Member Source to Staging\Member Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Member Source to Staging\Member Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[is_vip]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="is_vip" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Member Source to Staging\Member Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="gender" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Member Source to Staging\Member Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[birthdate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="birthdate" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Member Source to Staging\Member Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Member Source to Staging\Member Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[cdate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cdate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Loading Member Source to Staging\Member Staging Table.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Loading Member Source to Staging\Member Staging Table.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading Member Source to Staging\Member Staging Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Loading Member Source to Staging\Member Staging Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Loading Member Source to Staging\Member Staging Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Loading Member Source to Staging\Member Staging Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Loading Member Source to Staging.Paths[OLE DB Source Output]"
+              endId="Package\Loading Member Source to Staging\Member Staging Table.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Loading Member Source to Staging\Member Source Table.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Loading Restaurant Source to Staging"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{59F1708D-0F9F-482E-9CE9-C947C27DBE3D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Loading Restaurant Source to Staging"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\Loading Restaurant Source to Staging.EventHandlers[OnPreExecute]"
+          DTS:CreationName="OnPreExecute"
+          DTS:DTSID="{10067937-8222-463B-8F88-46141660BD5B}"
+          DTS:EventID="16776176"
+          DTS:EventName="OnPreExecute"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{0778658C-1B66-4300-A1EB-554B68305D0D}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Loading Restaurant Source to Staging.EventHandlers[OnPreExecute]\Truncate Restaurant Staging Table"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{DA197AF3-59B7-45E0-868D-8665A8587720}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Truncate Restaurant Staging Table"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{E1C59B96-9757-4CCC-9479-4232CE574AD8}"
+                  SQLTask:SqlStatementSource="truncate table dbo.StgRestaurant" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Loading Restaurant Source to Staging\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Loading Restaurant Source to Staging\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Restaurant Text File]"
+                  connectionManagerRefId="Package.ConnectionManagers[Restaurant Text File]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[id]"
+                      length="50"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[is_hotel]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[is_hotel]"
+                      length="50"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[is_hotel]"
+                      name="is_hotel"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[country]"
+                      length="50"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[country]"
+                      name="country"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[currency]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[currency]"
+                      length="50"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[currency]"
+                      name="currency"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[city]"
+                      length="50"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[city]"
+                      name="city"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[cityarea]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[cityarea]"
+                      length="50"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[cityarea]"
+                      name="cityarea"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[name]"
+                      length="50"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[name]"
+                      name="name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[abbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[abbr]"
+                      length="50"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[abbr]"
+                      name="abbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[tel]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[tel]"
+                      length="50"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[tel]"
+                      name="tel"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[good_for_family]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[good_for_family]"
+                      length="50"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[good_for_family]"
+                      name="good_for_family"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[accept_credit_card]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[accept_credit_card]"
+                      length="50"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[accept_credit_card]"
+                      name="accept_credit_card"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[parking]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[parking]"
+                      length="50"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[parking]"
+                      name="parking"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[outdoor_seating]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[outdoor_seating]"
+                      length="50"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[outdoor_seating]"
+                      name="outdoor_seating"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[wifi]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[wifi]"
+                      length="50"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[wifi]"
+                      name="wifi"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[wheelchair_accessible]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[wheelchair_accessible]"
+                      length="50"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[wheelchair_accessible]"
+                      name="wheelchair_accessible"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[price1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[price1]"
+                      length="50"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[price1]"
+                      name="price1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[price2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[price2]"
+                      length="50"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[price2]"
+                      name="price2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[lat]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[lat]"
+                      length="50"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[lat]"
+                      name="lat"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[lng]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[lng]"
+                      length="50"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[lng]"
+                      name="lng"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[timezone]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[timezone]"
+                      length="50"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[timezone]"
+                      name="timezone"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[locale]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[locale]"
+                      length="50"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[locale]"
+                      name="locale"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[cdate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[cdate]"
+                      length="50"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[cdate]"
+                      name="cdate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[is_hotel]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="is_hotel" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[currency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="currency" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[cityarea]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cityarea" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[abbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="abbr" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[tel]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="tel" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[good_for_family]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="good_for_family" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[accept_credit_card]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="accept_credit_card" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[parking]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="parking" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[outdoor_seating]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="outdoor_seating" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[wifi]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="wifi" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[wheelchair_accessible]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="wheelchair_accessible" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[price1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="price1" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[price2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="price2" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[lat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="lat" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[lng]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="lng" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[timezone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="timezone" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[locale]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="locale" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[cdate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cdate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Restaurant Staging Table"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[StgRestaurant]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ASUSCREATOR.DWBI_Restaurant_Staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[ASUSCREATOR.DWBI_Restaurant_Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].Columns[id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[id]" />
+                    <inputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].Columns[is_hotel]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="is_hotel"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[is_hotel]"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[is_hotel]" />
+                    <inputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].Columns[country]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="country"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[country]"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[country]" />
+                    <inputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].Columns[currency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="currency"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[currency]"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[currency]" />
+                    <inputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].Columns[city]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="city"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[city]" />
+                    <inputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].Columns[cityarea]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="cityarea"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[cityarea]"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[cityarea]" />
+                    <inputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].Columns[abbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="abbr"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[abbr]"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[abbr]" />
+                    <inputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].Columns[tel]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="tel"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[tel]"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[tel]" />
+                    <inputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].Columns[good_for_family]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="good_for_family"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[good_for_family]"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[good_for_family]" />
+                    <inputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].Columns[accept_credit_card]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="accept_credit_card"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[accept_credit_card]"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[accept_credit_card]" />
+                    <inputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].Columns[parking]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="parking"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[parking]"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[parking]" />
+                    <inputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].Columns[outdoor_seating]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="outdoor_seating"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[outdoor_seating]"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[outdoor_seating]" />
+                    <inputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].Columns[wifi]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="wifi"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[wifi]"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[wifi]" />
+                    <inputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].Columns[wheelchair_accessible]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="wheelchair_accessible"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[wheelchair_accessible]"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[wheelchair_accessible]" />
+                    <inputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].Columns[price1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="price1"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[price1]"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[price1]" />
+                    <inputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].Columns[price2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="price2"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[price2]"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[price2]" />
+                    <inputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].Columns[lat]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="lat"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[lat]"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[lat]" />
+                    <inputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].Columns[lng]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="lng"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[lng]"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[lng]" />
+                    <inputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].Columns[timezone]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="timezone"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[timezone]"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[timezone]" />
+                    <inputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].Columns[locale]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="locale"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[locale]"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[locale]" />
+                    <inputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].Columns[cdate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="cdate"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[cdate]"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[cdate]" />
+                    <inputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].Columns[name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="name"
+                      externalMetadataColumnId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                      lineageId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[is_hotel]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="is_hotel" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[currency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="currency" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[cityarea]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cityarea" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[abbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="abbr" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[tel]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="tel" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[good_for_family]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="good_for_family" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[accept_credit_card]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="accept_credit_card" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[parking]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="parking" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[outdoor_seating]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="outdoor_seating" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[wifi]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="wifi" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[wheelchair_accessible]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="wheelchair_accessible" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[price1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="price1" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[price2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="price2" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[lat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="lat" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[lng]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="lng" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[timezone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="timezone" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[locale]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="locale" />
+                    <externalMetadataColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[cdate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cdate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Loading Restaurant Source to Staging.Paths[Flat File Source Output]"
+              endId="Package\Loading Restaurant Source to Staging\Restaurant Staging Table.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Loading Restaurant Source to Staging\Flat File Source.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{A46D8FE5-FE95-45ED-82FA-5505DD26A8F9}"
+      DTS:From="Package\Loading Booking Source to Staging"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Loading Restaurant Source to Staging" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{6A71888C-F527-4E55-848E-8A10FD04739E}"
+      DTS:From="Package\Loading Restaurant Source to Staging"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Loading Member Source to Staging" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{719F8D06-5D95-49EA-9B5C-952EB3867E1D}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{01ECC107-471F-4C33-953C-3A25390D6DCA}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables />
+    </DTS:EventHandler>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnPreExecute]"
+      DTS:CreationName="OnPreExecute"
+      DTS:DTSID="{892FAFC9-00E5-4B9C-ACD7-5172E973B6FD}"
+      DTS:EventID="0"
+      DTS:EventName="OnPreExecute"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{F8BC4C6C-E563-49DC-9FA5-6BD43A9DC959}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables />
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="242.4,41.6"
+          Id="Package\Loading Booking Source to Staging"
+          TopLeft="316.428572102165,125.411764595954" />
+        <NodeLayout
+          Size="243.2,41.6"
+          Id="Package\Loading Member Source to Staging"
+          TopLeft="320.714286397002,312.764705608203" />
+        <NodeLayout
+          Size="256,41.6"
+          Id="Package\Loading Restaurant Source to Staging"
+          TopLeft="306.428572080878,236.294117439938" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="436.028572091522,167.011764595954">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,69.2823528439839"
+              Start="0,0"
+              End="0,61.7823528439839">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.7823528439839" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="438.37142923894,277.894117439938">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.8705881682653"
+              Start="0,0"
+              End="0,27.3705881682653">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.3705881682653" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="{A7057B0A-E07D-4AE1-8742-D4A17AC2F37B}"
+          TopLeft="410.857135421159,198.882349527161" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\Loading Booking Source to Staging">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="180,41.6"
+          Id="Package\Loading Booking Source to Staging\Booking Source Table"
+          TopLeft="551.428562639927,144.647056228406" />
+        <NodeLayout
+          Size="183.2,41.6"
+          Id="Package\Loading Booking Source to Staging\Booking Staging Table"
+          TopLeft="572.857135050759,447.529404205847" />
+        <EdgeLayout
+          Id="Package\Loading Booking Source to Staging.Paths[OLE DB Source Output]"
+          TopLeft="641.428562639927,186.247056228406">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="23.0285724108318,261.282347977441"
+              Start="0,0"
+              End="23.0285724108318,253.782347977441">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,126.64117398872" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,126.64117398872"
+                    Point2="0,130.64117398872"
+                    Point3="4,130.64117398872" />
+                  <mssgle:LineSegment
+                    End="19.0285724108318,130.64117398872" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19.0285724108318,130.64117398872"
+                    Point2="23.0285724108318,130.64117398872"
+                    Point3="23.0285724108318,134.64117398872" />
+                  <mssgle:LineSegment
+                    End="23.0285724108318,253.782347977441" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\Loading Booking Source to Staging.EventHandlers[OnPreExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="228.8,41.6"
+          Id="Package\Loading Booking Source to Staging.EventHandlers[OnPreExecute]\Truncate Booking Staging Table"
+          TopLeft="670.999990001321,227.999996602535" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loading Booking Source to Staging\Booking Source Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loading Booking Source to Staging\Booking Staging Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Loading Member Source to Staging">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="180.8,41.6"
+          Id="Package\Loading Member Source to Staging\Member Source Table"
+          TopLeft="348.999994799495,180.99999730289" />
+        <NodeLayout
+          Size="184,41.6"
+          Id="Package\Loading Member Source to Staging\Member Staging Table"
+          TopLeft="406.999993935228,370.999994471669" />
+        <EdgeLayout
+          Id="Package\Loading Member Source to Staging.Paths[OLE DB Source Output]"
+          TopLeft="439.399994799495,222.59999730289">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="59.5999991357327,148.399997168779"
+              Start="0,0"
+              End="59.5999991357327,140.899997168779">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70.1999985843897" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,70.1999985843897"
+                    Point2="0,74.1999985843897"
+                    Point3="4,74.1999985843897" />
+                  <mssgle:LineSegment
+                    End="55.5999991357327,74.1999985843897" />
+                  <mssgle:CubicBezierSegment
+                    Point1="55.5999991357327,74.1999985843897"
+                    Point2="59.5999991357327,74.1999985843897"
+                    Point3="59.5999991357327,78.1999985843897" />
+                  <mssgle:LineSegment
+                    End="59.5999991357327,140.899997168779" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\Loading Member Source to Staging.EventHandlers[OnPreExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="229.6,41.6"
+          Id="Package\Loading Member Source to Staging.EventHandlers[OnPreExecute]\Truncate Member Staging Table"
+          TopLeft="415.999993801117,244.999996349216" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loading Member Source to Staging\Member Source Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loading Member Source to Staging\Member Staging Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Loading Restaurant Source to Staging">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="196.8,41.6"
+          Id="Package\Loading Restaurant Source to Staging\Restaurant Staging Table"
+          TopLeft="460.142847853352,317.823521812327" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Loading Restaurant Source to Staging\Flat File Source"
+          TopLeft="465.999990842172,141.94117303636" />
+        <EdgeLayout
+          Id="Package\Loading Restaurant Source to Staging.Paths[Flat File Source Output]"
+          TopLeft="541.199990842172,183.54117303636">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17.3428570111799,134.282348775967"
+              Start="0,0"
+              End="17.3428570111799,126.782348775967">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.1411743879835" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,63.1411743879835"
+                    Point2="0,67.1411743879835"
+                    Point3="4,67.1411743879835" />
+                  <mssgle:LineSegment
+                    End="13.3428570111799,67.1411743879835" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.3428570111799,67.1411743879835"
+                    Point2="17.3428570111799,67.1411743879835"
+                    Point3="17.3428570111799,71.1411743879835" />
+                  <mssgle:LineSegment
+                    End="17.3428570111799,126.782348775967" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\Loading Restaurant Source to Staging.EventHandlers[OnPreExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="242.4,41.6"
+          Id="Package\Loading Restaurant Source to Staging.EventHandlers[OnPreExecute]\Truncate Restaurant Staging Table"
+          TopLeft="630.999990597367,289.999995678663" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loading Restaurant Source to Staging\Restaurant Staging Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
